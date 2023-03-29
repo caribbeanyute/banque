@@ -9,10 +9,7 @@ namespace banque
     class Account : IAccount
     {
         private Double accountBalance = 1000000 * new Random().NextDouble();
-        public void checkBalance()
-        {
-            throw new NotImplementedException();
-        }
+        public Double Balance => accountBalance;
 
         public void deposit(Double depositAmt)
         {
@@ -35,13 +32,13 @@ namespace banque
             }
             else if (withdrawAmt > accountBalance)
             {
-                throw new ApplicationException("Can't deposit negative amount");
+                throw new ApplicationException($"Withdrawal amount{withdrawAmt} exceeds account balance of ${accountBalance}");
             }
             else
             {
                 accountBalance -= accountBalance;
             }
-            throw new NotImplementedException();
+           // throw new NotImplementedException();
         }
     }
 }
