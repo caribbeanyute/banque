@@ -37,11 +37,11 @@ namespace banque
             }
             catch(FormatException fe)
             {
-                Console.WriteLine("Incorrect Format for deposit amount ");
+                Console.WriteLine("Incorrect Format for deposit amount correct format is XX.XX \n 123.00 ");
             }
             catch(ApplicationException ae)
             {
-                 
+                Console.WriteLine($"Error: {ae.Message}");
             }
             
         }
@@ -65,7 +65,7 @@ namespace banque
 
                 acc.Withdraw(withdrawamount);
 
-                Console.WriteLine($"Deposit of amount {amount} successful\n your new balance is { acc.ToMoneyFormat()}");
+                Console.WriteLine($"Deposit of amount {amount} successful\n  your new balance is { acc.ToMoneyFormat()}");
             }
             catch (FormatException fe)
             {
@@ -107,6 +107,8 @@ namespace banque
                         handleCheckBalance(custAcc);
                         break;
                     case "4":
+                        Console.WriteLine("Goodbye!!");
+                        System.Threading.Thread.Sleep(5000);
                         return;
                     default:
                         Console.WriteLine($"Invalid option select {option} ");
@@ -116,7 +118,7 @@ namespace banque
 
             }
 
-            System.Console.ReadLine();
+           
         }
     }
 }
