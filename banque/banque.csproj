@@ -45,7 +45,8 @@
   <ItemGroup>
     <Compile Include="ATMInstance.cs" />
     <Compile Include="Account.cs" />
-    <Compile Include="Interface1.cs" />
+    <Compile Include="Utilities.cs" />
+    <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -4,14 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace banque
-{
-    class Account : IAccount
-    {
-        private Double accountBalance = 1000000 * new Random().NextDouble();
-        public Double Balance => accountBalance;
 
-        public void deposit(Double depositAmt)
+    public class Account : IAccount
+    {
+        public decimal AccountBalance { get; set; } = (decimal)new Random().NextDouble() * (100000 - 10) + 10;
+
+        public void Deposit(decimal depositAmt)
         {
             if (depositAmt < 0)
             {
@@ -19,26 +17,28 @@ namespace banque
             }
             else
             {
-                accountBalance = accountBalance + depositAmt;
+                AccountBalance = AccountBalance + depositAmt;
             }
-            throw new NotImplementedException();
+
         }
 
-        public void withdraw(Double withdrawAmt)
+        public void Withdraw(decimal withdrawAmt)
         {
             if (withdrawAmt < 0)
             {
                 throw new ApplicationException("Can't deposit negative amount");
             }
-            else if (withdrawAmt > accountBalance)
+            else if (withdrawAmt > AccountBalance)
             {
-                throw new ApplicationException($"Withdrawal amount{withdrawAmt} exceeds account balance of ${accountBalance}");
+                throw new ApplicationException($"Withdrawal amount{withdrawAmt} exceeds account balance of ${AccountBalance}");
             }
             else
             {
-                accountBalance -= accountBalance;
+
+                AccountBalance -= withdrawAmt;
             }
-           // throw new NotImplementedException();
         }
+
+        public string ToMoneyFormat() => AccountBalance.ToString("C");
     }
-}
+

@@ -10,7 +10,7 @@ namespace banque
     {
         static void Main(string[] args)
         {
-            ATMInstance aTMInstance = new ATMInstance();
+           new ATMInstance();
         }
     }
 }
